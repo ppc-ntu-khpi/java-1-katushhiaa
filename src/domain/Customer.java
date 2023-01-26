@@ -11,7 +11,12 @@ public class Customer {
     }
 
     public void setID(int ID) {
-        this.ID = 15;
+        if (ID >= 0) {
+            this.ID = ID;
+            System.out.println("Customer ID: " + getID());
+        } else {
+            System.out.println("Error. ID can`t be negative");
+        }
     }
 
     public boolean isIsNew() {
@@ -19,7 +24,13 @@ public class Customer {
     }
 
     public void setIsNew(boolean isNew) {
-        this.isNew = false;
+        if (isNew == false) {
+            System.out.println("We already have you");
+        } else {
+            this.isNew = isNew;
+            System.out.println("Is he new: " + isIsNew());
+        }
+
     }
 
     public float getTotal() {
@@ -27,12 +38,11 @@ public class Customer {
     }
 
     public void setTotal(float total) {
-        this.total = 30.0F;
-    } 
-
-    public void displayCustomerInfo() {
-        System.out.println("Customer ID: " + ID);
-        System.out.println("Is he new: " + isNew);
-        System.out.println("Total purchases are: " + total);
+        if (total >= 0) {
+            this.total = total;
+             System.out.println("Total purchases are: " + getTotal());
+       } else {
+            System.out.println("Error. Total number can`t be negative");
+        }
     }
 }
